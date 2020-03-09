@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Céu do Sentimento</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <script src="libs/jquery.js"></script>
+
+    <script src="libs/three.js"></script>
+    <script src="libs/stats.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/TweenMax.min.js"></script>
+
+
+    <script src="libs/d3.js"></script>
+    <script src="libs/d3.layout.force3D.js"></script>
+
+
+    <!-- SEE SOURCE HERE -->
+    <script src="js/sphere-collision.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family:sans-serif;
+            padding: 0px;
+            margin: 0px;
+        }
+        #stage {
+            position: absolute;
+            top:0px;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        #logoBar{
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        #panelFeedback{
+            position: fixed;
+            color: white;
+            font-family: "Arial Black", serif;
+            /*background-color: rgba(255,255,255,.8);*/
+            background: linear-gradient(rgba(255, 136, 132, .8) 0%, rgba(255, 146, 123, .8) 17%, rgba(255, 166, 106, .8) 68%, rgba(255, 174, 100, .8) 100%);
+            border-radius: 15px;
+            padding: 50px;
+            z-index: -2;
+            left: 0;
+            right: 0;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 9%;
+            opacity: 0;
+        }
+
+        .text{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .textBig{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: xx-large;
+        }
+
+        .btnFrases{
+            padding: 5px;
+            border-radius: 9px;
+            cursor: pointer;
+            width: 100%;
+            background-color: rgb(255, 136, 132);
+            margin-top: 9px;
+            text-align: center;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <div id="logoBar">
+        <div id="logo">
+            <img src="https://meusentimento.com/static/media/logo-text.1344567c.svg" alt="logo">
+        </div>
+    </div>
+
+
+    <div id="panelFeedback">
+        <div style="">
+
+            <img src="logo_branco_transp.png" alt="logo2">
+        </div>
+
+        <div class="text">
+            Você estourou o sentimento de alguem de:
+        </div>
+        <div class="textBig">
+            Mato Grosso do Sul
+        </div>
+        <div class="text">
+            que se sente
+        </div>
+        <div class="textBig">
+            EMOCIONADO
+        </div>
+
+        <div class="text">
+            Envie uma mensagem:
+        </div>
+
+        <div class="btnFrases">
+            Não se preocupe, tudo ficará bem.
+        </div>
+        <div class="btnFrases">
+            Mantenha essa força, gerrueiro(a)
+        </div>
+        <div class="btnFrases">
+            Eu te amo.
+        </div>
+    </div>
+
+    <div id="stage"></div>
+
+
+
+</body>
+
+</html>
