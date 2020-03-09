@@ -4,8 +4,7 @@
 "use strict";
 
 function sphereCollision(canvas, _panelFeedBack) {
-
-
+    _panelFeedBack.opened = false;
 
     var movementSpeed = 50;
     var totalObjects = 1000;
@@ -250,8 +249,8 @@ function sphereCollision(canvas, _panelFeedBack) {
         hemiLight.position.y = 5100;
         scene.add(hemiLight);
 
-        var axes = new THREE.AxisHelper(1000);
-        scene.add(axes);
+        // var axes = new THREE.AxisHelper(1000);
+        // scene.add(axes);
 
         // stats = new Stats();
         // stats.domElement.style.position = 'absolute';
@@ -268,10 +267,11 @@ function sphereCollision(canvas, _panelFeedBack) {
         addSpheres();
         function onMouseClick(event) {
             event.preventDefault();
-            console.log( "onMouseClick!!" );
-            let pos_mousex = mouse.x;
-            let pos_mousey = mouse.y;
 
+            if (_panelFeedBack.opened)
+                return;
+
+            console.log( "onMouseClick!!" );
 
             raycaster.setFromCamera(mouse, camera);
 
@@ -286,6 +286,7 @@ function sphereCollision(canvas, _panelFeedBack) {
                     snapSound.play();
 
                     //open panel feedback
+                    _panelFeedBack.opened = true;
                     let timeLine = new TimelineMax();
                     timeLine.to(
                             _panelFeedBack,
@@ -429,6 +430,8 @@ $(function () {
             0,
             {"z-index": -10},
         );
+
+        panelFeedBack.opened = false;
     });
 
     sphereCollision($('#stage'), panelFeedBack);
