@@ -421,17 +421,22 @@ $(function () {
 
         timeLine.fromTo(
             panelFeedBack,
-            2,
+            .3,
             { opacity: 1 },
-            { opacity: 0 , ease: Power1.easeOut},
+            {
+                opacity: 0
+            },
             "0"
         ).to(
             panelFeedBack,
             0,
-            {"z-index": -10},
+            {"z-index": -10,
+                onComplete: ()=>{
+                    panelFeedBack.opened = false;
+                }
+            },
         );
 
-        panelFeedBack.opened = false;
     });
 
     sphereCollision($('#stage'), panelFeedBack);
